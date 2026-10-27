@@ -236,9 +236,59 @@ function TrackContent() {
                 )}
               </div>
 
-              {/* Shipment Info — no shipper/receiver/freight mode */}
+              {/* Sender & Receiver Information */}
               <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                <h3 className="mb-4 border-b border-gray-100 pb-3 text-sm font-bold text-gray-800">
+                <h3 className="mb-4 border-b border-gray-100 pb-3 text-sm font-bold uppercase tracking-wide text-gray-800">
+                  Sender &amp; Receiver Information
+                </h3>
+                <div className="grid gap-6 md:grid-cols-2">
+                  {/* Sender Info - Name & Address only */}
+                  <div className="rounded-lg border border-gray-100 bg-gray-50 p-4">
+                    <h4 className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-500">
+                      <Package className="size-4" /> Sender
+                    </h4>
+                    <div className="space-y-2">
+                      <div>
+                        <p className="text-xs font-semibold text-gray-500">Name:</p>
+                        <p className="text-sm font-medium text-gray-900">{shipment.shipper_name}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-gray-500">Address:</p>
+                        <p className="text-sm text-gray-700">{shipment.shipper_address}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Receiver Info - All 4 details */}
+                  <div className="rounded-lg border border-rose-100 bg-rose-50 p-4">
+                    <h4 className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-600">
+                      <MapPin className="size-4" /> Receiver
+                    </h4>
+                    <div className="space-y-2">
+                      <div>
+                        <p className="text-xs font-semibold text-rose-500">Name:</p>
+                        <p className="text-sm font-medium text-gray-900">{shipment.receiver_name}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-rose-500">Phone:</p>
+                        <p className="text-sm text-gray-700">{shipment.receiver_phone}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-rose-500">Email:</p>
+                        <p className="text-sm text-gray-700">{shipment.receiver_email}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-rose-500">Address:</p>
+                        <p className="text-sm text-gray-700">{shipment.receiver_address}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Shipment Info */}
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                <h3 className="mb-4 border-b border-gray-100 pb-3 text-sm font-bold uppercase tracking-wide text-gray-800">
                   Shipment Information
                 </h3>
                 <ShipmentInfoGrid shipment={shipment} />
